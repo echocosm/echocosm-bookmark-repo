@@ -1,4 +1,0 @@
-hi
-
-<!-- You can set your favicon here -->
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
