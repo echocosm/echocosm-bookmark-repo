@@ -1,0 +1,164 @@
+/*
+ * Custom Firefox Bookmarks Toolbar
+ * Author: Giuliana Hejtmanek | GitHub: github.com/giulihejt/custom-firefox-bookmarks-toolbar
+ * License: MIT
+ */
+
+ 
+/*
+================================================================================
+📝 SETUP INSTRUCTIONS
+================================================================================
+
+1. Enable Custom Stylesheets:
+   - Go to about:config
+   - Search: toolkit.legacyUserProfileCustomizations.stylesheets
+   - Set to: true
+
+2. Locate Profile Folder:
+   - Go to about:support
+   - Find "Profile Folder" under Application Basics → Open Folder
+   - Path: %APPDATA%\Mozilla\Firefox\Profiles\[your-profile-folder]
+
+3. Create Folder Structure:
+   firefox-profile/
+   └── chrome/
+       ├── userChrome.css
+       └── icons/
+
+4. Add Icons to icons/ folder:
+   - Formats: SVG (best), PNG
+   - Sizes: 16x16 (standard), 32x32 (high-DPI), 64x64 (max)
+
+5. Review and customize the sections below:
+   - Delete or comment out unwanted styles
+   - Keep and modify the ones you want
+
+6. Update bookmark folder names and icon filenames to match yours
+
+7. Save userChrome.css and restart Firefox
+
+================================================================================
+*/
+
+
+/* ⚠️ REQUIRED: DO NOT REMOVE - Enables XUL namespace for Firefox UI styling */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+/* Without this line above, your customizations will not work! */
+
+
+/*
+================================================================================
+🎨 CUSTOMIZATION SECTION - EDIT BELOW
+================================================================================
+*/
+
+/* ========================================
+   📏 SIZE & SPACING
+   ======================================== */
+/* Icon size: 16px (default), 20px (enlarged), 24px, 32px
+   Padding: Space inside bookmarks - try 2px 4px (compact) or 4px 6px (spacious)
+   Margin: Space between bookmarks - try 0 1px (tight) or 0 3px (wide) */
+
+.bookmark-item > .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item {
+  padding: 3px 5px !important;
+  margin: 1 2px !important;
+}
+
+/* ========================================
+   🎨 OPTIONAL STYLES
+   ======================================== */
+/* Delete or comment out any styles you don't want to use */
+
+/* Hide bookmark text labels (icons only) */
+#PlacesToolbarItems > .bookmark-item > .toolbarbutton-text {
+  display: none !important;
+}
+
+/* Multi-row bookmarks toolbar */
+#PlacesToolbarItems {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+}
+
+#PlacesToolbar {
+  height: auto !important;
+}
+
+#PersonalToolbar {
+  max-height: none !important;
+  height: auto !important;
+}
+
+/* Auto-hide toolbar (shows on hover) 
+#PersonalToolbar {
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out !important;
+}
+#navigator-toolbox:hover > #PersonalToolbar {
+  opacity: 1 !important;
+  max-height: 160px !important;
+}
+*/
+
+#PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item{
+  --menuitem-icon: url("...") !important; /* suppress default folder icon */
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+  background-position: 8px center !important;
+}
+#PlacesToolbarItems .openintabs-menuitem,
+#placesContext>menuitem[id="placesContext_openContainer:tabs"],
+#placesContext>menuitem[id="placesContext_openContainer:tabs"]:not([hidden])+menuitem+#placesContext_openSeparator {visibility:collapse!important}
+menuseparator.bookmarks-actions-menuseparator {display: none !important;}
+/* ========================================
+   📁 CUSTOM BOOKMARK ICONS
+   ======================================== */
+/* Replace label="BookmarkName" with your bookmark name
+   Replace url("./icons/filename.svg") with your icon filename
+   Example: .bookmark-item[container="true"][label="Work"] { list-style: url("./icons/work.svg") !important; } */
+
+/* Only apply custom icon system to bookmarks that define the variable */
+/* 1. Hide default icons for ONLY these bookmarks */
+toolbarbutton.bookmark-item[label="History"] > .toolbarbutton-icon,
+toolbarbutton.bookmark-item[label="PNG Optimizer"] > .toolbarbutton-icon,
+toolbarbutton.bookmark-item[label="Online ICO converter"] > .toolbarbutton-icon,
+toolbarbutton.bookmark-item[label="echocosm-icon-repo"] > .toolbarbutton-icon,
+toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"] > .toolbarbutton-icon {
+    display: none !important;
+}
+
+/* 2. Shared injected icon styling */
+toolbarbutton.bookmark-item[label="History"]::before,
+toolbarbutton.bookmark-item[label="PNG Optimizer"]::before,
+toolbarbutton.bookmark-item[label="Online ICO converter"]::before,
+toolbarbutton.bookmark-item[label="echocosm-icon-repo"]::before,
+toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 3. Individual icons */
+toolbarbutton.bookmark-item[label="History"]::before {background-image: url("icons/ythistory64.svg") !important;}
+toolbarbutton.bookmark-item[label="PNG Optimizer"]::before {background-image: url("icons/pngCon64.svg") !important;}
+toolbarbutton.bookmark-item[label="Online ICO converter"]::before {background-image: url("icons/icoCon64.svg") !important;}
+toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"]::before {background-image: url("icons/bookmarkRepo64.svg") !important;}
+toolbarbutton.bookmark-item[label="echocosm-icon-repo"]::before {background-image: url("icons/iconRepo64.svg") !important;}
+.bookmark-item[label="Games"] { list-style: url("./icons/gamepad64.svg") !important; }
+#PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Spore"] {background-image: url("./icons/spore64.svg") !important;}
+#PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Rimworld"] {background-image: url("./icons/rimworld64.svg") !important;}
+.bookmark-item[label="LEGO"] { list-style: url("./icons/lego64.svg") !important; }
+.bookmark-item[label="JellyFin"] { list-style: url("./icons/jellyfin64.svg") !important; }
+.bookmark-item[label="Firefox"] { list-style: url("./icons/firefox64.svg") !important; }
