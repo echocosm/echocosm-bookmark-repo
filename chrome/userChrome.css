@@ -179,3 +179,5 @@ toolbarbutton.bookmark-item[label="echocosm-icon-repo"]::before {background-imag
 #PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Phonics"] {background-image: url("./icons/ae64.svg") !important;}
 #PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Elster"] {background-image: url("./icons/signalis64.svg") !important;}
 .bookmark-item[label="Startrek"] { list-style: url("./icons/tng64.svg") !important; }
+.bookmark-item[label="Pirate"] { list-style: url("./icons/skullcrossbones64.svg") !important; }
+.bookmark-item[label="Laptop"] { list-style: url("./icons/laptop64.svg") !important; }
