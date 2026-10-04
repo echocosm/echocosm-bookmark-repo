@@ -10,22 +10,25 @@
   <defs
      id="defs2" />
   <circle
-     cx="4"
-     cy="4"
-     r="4"
+     cx="32"
+     cy="32"
+     r="32"
      fill="#ffffff"
-     id="circle1" />
+     id="circle1"
+     style="stroke-width:8" />
   <circle
-     cx="4"
-     cy="4"
-     r="3"
+     cx="32"
+     cy="32"
+     r="24"
      fill="none"
      stroke="#000000"
      stroke-width="1"
-     id="circle2" />
+     id="circle2"
+     style="stroke-width:8;stroke-dasharray:none" />
   <path
-     d="M 6,2 2,6"
+     d="M 48,16 16,48"
      stroke="#000000"
      stroke-width="1"
-     id="path2" />
+     id="path2"
+     style="stroke-width:8;stroke-dasharray:none" />
 </svg>
