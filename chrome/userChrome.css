@@ -38,6 +38,8 @@
 
 7. Save userChrome.css and restart Firefox
 
+8. Ctrl + Shift + J , then Ctrl + Alt + R to restart forefox
+
 ================================================================================
 */
 
@@ -89,7 +91,6 @@
 
 #PlacesToolbar {
   height: auto !important;
-   /* background: #ff00ff; */
 }
 
 #PersonalToolbar {
@@ -133,7 +134,8 @@ toolbarbutton.bookmark-item[label="History"] > .toolbarbutton-icon,
 toolbarbutton.bookmark-item[label="PNG Optimizer"] > .toolbarbutton-icon,
 toolbarbutton.bookmark-item[label="Online ICO converter"] > .toolbarbutton-icon,
 toolbarbutton.bookmark-item[label="echocosm-icon-repo"] > .toolbarbutton-icon,
-toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"] > .toolbarbutton-icon {
+toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"] > .toolbarbutton-icon,
+toolbarbutton.bookmark-item[label="echocosm-ublacklist"] > .toolbarbutton-icon {
     display: none !important;
 }
 
@@ -142,7 +144,8 @@ toolbarbutton.bookmark-item[label="History"]::before,
 toolbarbutton.bookmark-item[label="PNG Optimizer"]::before,
 toolbarbutton.bookmark-item[label="Online ICO converter"]::before,
 toolbarbutton.bookmark-item[label="echocosm-icon-repo"]::before,
-toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"]::before {
+toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"]::before,
+toolbarbutton.bookmark-item[label="echocosm-ublacklist"]::before {
     content: "";
     display: inline-block;
     width: 16px;
@@ -157,6 +160,7 @@ toolbarbutton.bookmark-item[label="PNG Optimizer"]::before {background-image: ur
 toolbarbutton.bookmark-item[label="Online ICO converter"]::before {background-image: url("icons/icoCon64.svg") !important;}
 toolbarbutton.bookmark-item[label="echocosm-bookmark-repo"]::before {background-image: url("icons/bookmarkRepo64.svg") !important;}
 toolbarbutton.bookmark-item[label="echocosm-icon-repo"]::before {background-image: url("icons/iconRepo64.svg") !important;}
+toolbarbutton.bookmark-item[label="echo-ublacklist"]::before {background-image: url("icons/ublacklist64.svg") !important;}
 .bookmark-item[label="Games"] { list-style: url("./icons/gamepad64.svg") !important; }
 #PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Rimworld"] {background-image: url("./icons/rimworld64.svg") !important;}
 #PlacesToolbarItems menupopup menu.menu-iconic.bookmark-item[label="Spore"] {background-image: url("./icons/spore64.svg") !important;}
